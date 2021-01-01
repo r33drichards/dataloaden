@@ -113,15 +113,16 @@ func getData(name string, keyType string, valueType string, wd string) (template
 		return templateData{}, fmt.Errorf("key type: %s", err.Error())
 	}
 
+	// WORKAROUND
 	// if we are inside the same package as the type we don't need an import and can refer directly to the type
-	if genPkg.PkgPath == data.ValType.ImportPath {
-		data.ValType.ImportName = ""
-		data.ValType.ImportPath = ""
-	}
-	if genPkg.PkgPath == data.KeyType.ImportPath {
-		data.KeyType.ImportName = ""
-		data.KeyType.ImportPath = ""
-	}
+	// if genPkg.PkgPath == data.ValType.ImportPath {
+	// 	data.ValType.ImportName = ""
+	// 	data.ValType.ImportPath = ""
+	// }
+	// if genPkg.PkgPath == data.KeyType.ImportPath {
+	// 	data.KeyType.ImportName = ""
+	// 	data.KeyType.ImportPath = ""
+	// }
 
 	return data, nil
 }
